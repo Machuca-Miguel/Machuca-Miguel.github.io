@@ -1,16 +1,25 @@
+@import "variables";
+@import "mixins";
+
 /* Estilo general */
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: sans-serif, system-ui;
 
-  a{text-decoration: none;}
-  color: white;
+  a {
+    text-decoration: none;
+    color: $primary-text-color;
+  }
+  &::selection {
+    color: $primary-orange-color;
+  }
 }
 
 /* Estilo general del nav */
 .navbar {
-  background-color: #1f1f1f;
-  color: white;
+  background-color: $secondary-dark-color;
+  color: $primary-text-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +28,6 @@
   height: 60px;
 
   a {
-    text-decoration: none;
     color: inherit;
     display: flex;
     justify-content: flex-start;
@@ -47,78 +55,155 @@
     gap: 20px;
 
     li {
-      color: #ff6e5f;
+      color: $secondary-orange-color;
       cursor: pointer;
       font-weight: bold;
 
       &:hover {
-        color: #e74c3c;
+        color: $primary-orange-color;
       }
     }
   }
 }
 
 .main {
-  background-color: #333;
-  color: white;
+  background-color: $primary-dark-color;
+  color: $primary-text-color;
 
-  /* Estilo para los elementos de la seccion Landing */
-  .section_Landing {
+  /* Estilo para los elementos de la sección Landing */
+  .section_landing {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: clamp(50px, 20%, 70px);
     padding: 3em 5em;
+    gap: clamp(50px, 15%, 200px);
 
     /* Estilo para los elementos de la imagen Landing */
-    .container_Image {
+    .container_image {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      .circle_Background {
-        background-color: #ff6e5f;
+      .circle_background {
+        background-color: $secondary-orange-color;
+        background-image: $gradient-text-color;
         width: 250px;
         aspect-ratio: 1/1;
-        border-radius: 100%;
+        border-radius: 50%;
         position: absolute;
-        bottom: -1px;
+        bottom: 0;
       }
 
       img {
         height: 300px;
+        width: 250px;
+        object-fit: contain;
         z-index: 1;
-        border-radius:40%
-
+        border-bottom-left-radius: 125px;
+        border-bottom-right-radius: 125px;
+        position: relative;
       }
     }
 
     /* Estilo para los elementos del texto Landing */
-    div {
+    .container_landing_text {
       width: clamp(300px, 30%, 400px);
       display: flex;
       flex-direction: column;
 
-      
+      h1 {
+        width: fit-content;
+        @include text-gradient();
 
-      p {
-        margin: 1em 0;
-        font-style: italic;
       }
 
-      .container_Landing_Buttons {
-        flex-direction: row;
-        gap: 16px;
+      .name_detail {
+        font-size: bold;
+        font-family: monospace;
+        font-size: 20px;
+        @include text-gradient();
+      }
+
+      p {
+        margin: 0.5em 0 1em 0;
+        font-style: italic;
+        color: $secondary-text-color;
+      }
+
+      .container_landing_buttons {
+        display: flex;
+        gap: 20px;
+
+        button,
+        a {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 0;
+        }
+
+        .icon {
+          width: 15px;
+          aspect-ratio: 1/1;
+        }
       }
     }
   }
 
   button {
+    min-width: fit-content;
     background-color: transparent;
-    border: 2px solid #ff6e5f;
-    border-radius: 5px;
+    border: 2px solid none;
+    border-image: $gradient-text-color;
+    border-image-slice: 1;
     padding: 6px 12px;
-    color: white;
+    color: $primary-text-color;
+    transition: background-image 7s ease;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  button::before {
+    background-image: $gradient-text-color;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+  button:hover::before {
+    width: 200%;
+  }
+
+  /* Section in Progress */
+  .section_inProgress{
+    min-height: 51vh;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    
+    h2{
+      color: black;
+    opacity: 0.7;
+    }
+    img{
+      width: 200px;
+      mix-blend-mode: multiply;
+      opacity: 1;
+      filter:hue-rotate(180deg);
+      
+      
+    }
   }
 }

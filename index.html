@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Miguel Machuca</title>
     <link rel="stylesheet" href="styles/style.css" />
@@ -10,8 +10,8 @@
     <header>
       <nav class="navbar">
         <a href="#top">
-          <img src="/assets/images/Logo-MM.png" alt="Logo" />
-          <span class="name">Miguel Machuca</span>
+          <img src="/assets/images/logo-mm.png" alt="Logo" />
+          <h2 class="name">Miguel Machuca</h2>
         </a>
         <ul>
           <li>Proyectos</li>
@@ -22,29 +22,42 @@
       </nav>
     </header>
     <main class="main">
-      <section class="section_Landing">
-
-        <div class="container_Image">
-          <div class="circle_Background"></div>
-          <img src="/assets/images/Foto-Perfil.png" alt="" />
+      <section class="section_landing">
+        <div class="container_image">
+          <div class="circle_background"></div>
+          <img src="/assets/images/foto-perfil.png" alt="" />
         </div>
 
-        <div>
+        <div class="container_landing_text">
           <h1>Miguel Ángel Machuca</h1>
-          <h4>Desarrollador Full Stack</h4>
+          <h4>
+            <span class="name_detail">&lt;&gt; </span>
+            Desarrollador Full Stack
+            <span class="name_detail">&lt;/&gt;</span>
+          </h4>
           <p>
             Me encanta enfrentarme desafíos técnicos y transformarlos en
             oportunidades de crecimiento y mejora
           </p>
 
-          <div class="container_Landing_Buttons">
-            <button><a href="https://www.linkedin.com/in/miguel-machuca/" target="_blank">LinkedIn</a></button>
-            <button><a href="https://github.com/Machuca-Miguel" target="_blank">GitHub</a></button>
-            <button>Contacto</button>
+          <div class="container_landing_buttons">
+            <button>
+              <a
+                href="https://www.linkedin.com/in/miguel-machuca/"
+                target="_blank"
+                >LinkedIn <img class="icon" src="/assets/icons/linkedIn.svg" alt=""></a
+              >
+            </button>
+            <button>
+              <a href="https://github.com/machuca-miguel" target="_blank"
+                >GitHub <img class="icon" src="/assets//icons/gitHub.svg" alt=""></a
+              >
+            </button>
+            <button>Contacto <img class="icon" src="/assets/icons/contact.svg" alt=""></button>
           </div>
-
         </div>
       </section>
+      <section class="section_inProgress"><h2>Portfolio in progress...</h2><img src="/assets/icons/work-in-progress.gif" alt=""></section>
     </main>
   </body>
 </html>
