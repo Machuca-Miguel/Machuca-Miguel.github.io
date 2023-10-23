@@ -1,53 +1,124 @@
-/* Estilo general del nav */
-.navbar { 
-    background-color: #1f1f1f;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1em;
-    padding: 10px 5em;
-  }
+/* Estilo general */
+* {
+  margin: 0;
+  box-sizing: border-box;
 
-  .navbar a{
+  a{text-decoration: none;}
+  color: white;
+}
+
+/* Estilo general del nav */
+.navbar {
+  background-color: #1f1f1f;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  padding: 10px 5em;
+  height: 60px;
+
+  a {
     text-decoration: none;
     color: inherit;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 1em;
-  
-
   }
-  
+
   /* Estilo para el logo */
-  .navbar img {
+  img {
     max-width: 40px;
     height: auto;
     filter: hue-rotate(90deg);
   }
-  
+
   /* Estilo para el nombre */
-  .navbar .name {
+  .name {
     font-size: 24px;
     font-weight: bold;
   }
-  
+
   /* Estilo para los elementos de la lista */
-  .navbar ul {
+  ul {
     list-style: none;
     display: flex;
     gap: 20px;
 
+    li {
+      color: #ff6e5f;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover {
+        color: #e74c3c;
+      }
+    }
+  }
 }
-  
-  .navbar li {
-    color: #ff6e5f; 
-    cursor: pointer;
-    font-weight: bold;
+
+.main {
+  background-color: #333;
+  color: white;
+
+  /* Estilo para los elementos de la seccion Landing */
+  .section_Landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(50px, 20%, 70px);
+    padding: 3em 5em;
+
+    /* Estilo para los elementos de la imagen Landing */
+    .container_Image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .circle_Background {
+        background-color: #ff6e5f;
+        width: 250px;
+        aspect-ratio: 1/1;
+        border-radius: 100%;
+        position: absolute;
+        bottom: -1px;
+      }
+
+      img {
+        height: 300px;
+        z-index: 1;
+        border-radius:40%
+
+      }
+    }
+
+    /* Estilo para los elementos del texto Landing */
+    div {
+      width: clamp(300px, 30%, 400px);
+      display: flex;
+      flex-direction: column;
+
+      
+
+      p {
+        margin: 1em 0;
+        font-style: italic;
+      }
+
+      .container_Landing_Buttons {
+        flex-direction: row;
+        gap: 16px;
+      }
+    }
   }
-  
-  .navbar li:hover {
-    color: #e74c3c; 
+
+  button {
+    background-color: transparent;
+    border: 2px solid #ff6e5f;
+    border-radius: 5px;
+    padding: 6px 12px;
+    color: white;
   }
-  
+}

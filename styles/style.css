@@ -1,0 +1,108 @@
+/* Estilo general */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+}
+* a {
+  text-decoration: none;
+}
+
+/* Estilo general del nav */
+.navbar {
+  background-color: #1f1f1f;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  padding: 10px 5em;
+  height: 60px;
+  /* Estilo para el logo */
+  /* Estilo para el nombre */
+  /* Estilo para los elementos de la lista */
+}
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+}
+.navbar img {
+  max-width: 40px;
+  height: auto;
+  filter: hue-rotate(90deg);
+}
+.navbar .name {
+  font-size: 24px;
+  font-weight: bold;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.navbar ul li {
+  color: #ff6e5f;
+  cursor: pointer;
+  font-weight: bold;
+}
+.navbar ul li:hover {
+  color: #e74c3c;
+}
+
+.main {
+  background-color: #333;
+  color: white;
+  /* Estilo para los elementos de la seccion Landing */
+}
+.main .section_Landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(50px, 20%, 70px);
+  padding: 3em 5em;
+  /* Estilo para los elementos de la imagen Landing */
+  /* Estilo para los elementos del texto Landing */
+}
+.main .section_Landing .container_Image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .section_Landing .container_Image .circle_Background {
+  background-color: #ff6e5f;
+  width: 250px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  position: absolute;
+  bottom: -1px;
+}
+.main .section_Landing .container_Image img {
+  height: 300px;
+  z-index: 1;
+  border-radius: 40%;
+}
+.main .section_Landing div {
+  width: clamp(300px, 30%, 400px);
+  display: flex;
+  flex-direction: column;
+}
+.main .section_Landing div p {
+  margin: 1em 0;
+  font-style: italic;
+}
+.main .section_Landing div .container_Landing_Buttons {
+  flex-direction: row;
+  gap: 16px;
+}
+.main button {
+  background-color: transparent;
+  border: 2px solid #ff6e5f;
+  border-radius: 5px;
+  padding: 6px 12px;
+  color: white;
+}/*# sourceMappingURL=style.css.map */
