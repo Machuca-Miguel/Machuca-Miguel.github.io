@@ -1,0 +1,53 @@
+/* Estilo general del nav */
+.navbar { 
+    background-color: #1f1f1f;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 10px 5em;
+  }
+
+  .navbar a{
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+  
+
+  }
+  
+  /* Estilo para el logo */
+  .navbar img {
+    max-width: 40px;
+    height: auto;
+    filter: hue-rotate(90deg);
+  }
+  
+  /* Estilo para el nombre */
+  .navbar .name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Estilo para los elementos de la lista */
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+
+}
+  
+  .navbar li {
+    color: #ff6e5f; 
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .navbar li:hover {
+    color: #e74c3c; 
+  }
+  
