@@ -4,9 +4,6 @@
 [submodule "MyLibrary"]
 	path = MyLibrary
 	url = https://github.com/Machuca-Miguel/MyLibraryApp.git
-[submodule "Portfolio"]
-	path = Portfolio
-	url = https://github.com/Machuca-Miguel/Portfolio.git
 [submodule "Frikland"]
 	path = Frikland
 	url = https://github.com/Machuca-Miguel/Frikland-project.git
