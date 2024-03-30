@@ -1,0 +1,9 @@
+[submodule "projects/DroneMaster"]
+	path = projects/DroneMaster
+	url = https://github.com/Machuca-Miguel/DroneMaster.git
+[submodule "projects/MyLibrary"]
+	path = projects/MyLibrary
+	url = https://github.com/Machuca-Miguel/MyLibraryApp.git
+[submodule "projects/Frikland"]
+	path = projects/Frikland
+	url = https://github.com/Machuca-Miguel/Frikland-project.git
