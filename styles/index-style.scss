@@ -5,7 +5,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif, system-ui;
+  font-family: monospace, sans-serif, system-ui;
 
   a {
     text-decoration: none;
@@ -26,6 +26,9 @@
   gap: 1em;
   padding: 10px 5em;
   height: 60px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
 
   a {
     color: inherit;
@@ -52,15 +55,16 @@
   ul {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 20px;
 
     li {
-      color: $secondary-orange-color;
       cursor: pointer;
       font-weight: bold;
-
+      @include gradient-button;
+      color: $secondary-text-color;
       &:hover {
-        color: $primary-orange-color;
+        @include text-gradient;
       }
     }
   }
@@ -72,11 +76,11 @@
 
   /* Estilo para los elementos de la sección Landing */
   .section_landing {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    grid-template-rows: 400px;
+    padding: 5em;
     align-items: center;
-    padding: 3em 5em;
-    gap: clamp(50px, 15%, 200px);
 
     /* Estilo para los elementos de la imagen Landing */
     .container_image {
@@ -86,49 +90,60 @@
       align-items: center;
 
       .circle_background {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        width: 20vw;
+        aspect-ratio: 1/1;
         background-color: $secondary-orange-color;
         background-image: $gradient-text-color;
-        width: 250px;
-        aspect-ratio: 1/1;
         border-radius: 50%;
-        position: absolute;
-        bottom: 0;
-      }
+        clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%, 0 0);
+        overflow: hidden;
+        z-index: 0;
 
-      img {
-        height: 300px;
-        width: 250px;
-        object-fit: contain;
-        z-index: 1;
-        border-bottom-left-radius: 125px;
-        border-bottom-right-radius: 125px;
-        position: relative;
+        img {
+          width: 70%;
+          object-fit: cover;
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));
+        }
       }
     }
 
     /* Estilo para los elementos del texto Landing */
     .container_landing_text {
-      width: clamp(300px, 30%, 400px);
+      width: 600px;
       display: flex;
       flex-direction: column;
 
       h1 {
-        width: fit-content;
+        font-size: 32px;
         @include text-gradient();
-
+      }
+      h4 {
+        font-size: 24px;
       }
 
       .name_detail {
         font-size: bold;
-        font-family: monospace;
-        font-size: 20px;
+        font-size: 24px;
         @include text-gradient();
       }
 
       p {
+        margin-top: 0.5em;
+        color: $secondary-text-color;
+      }
+      .quote {
         margin: 0.5em 0 1em 0;
         font-style: italic;
-        color: $secondary-text-color;
+
+        span {
+          @include text-gradient();
+        }
       }
 
       .container_landing_buttons {
@@ -151,59 +166,25 @@
     }
   }
 
-  button {
-    min-width: fit-content;
-    background-color: transparent;
-    border: 2px solid none;
-    border-image: $gradient-text-color;
-    border-image-slice: 1;
-    padding: 6px 12px;
-    color: $primary-text-color;
-    transition: background-image 7s ease;
-    z-index: 1;
-    position: relative;
-    overflow: hidden;
-  }
-  button::before {
-    background-image: $gradient-text-color;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -10px;
-    width: 0;
-    height: 100%;
-    transform: skew(15deg);
-    transition: all 0.5s;
-    overflow: hidden;
-    z-index: -1;
-  }
-
-  button:hover {
-    cursor: pointer;
-  }
-  button:hover::before {
-    width: 200%;
-  }
+  @include gradient-button;
 
   /* Section in Progress */
-  .section_inProgress{
+  .section_inProgress {
     min-height: 51vh;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-    
-    h2{
+
+    h2 {
       color: black;
-    opacity: 0.7;
+      opacity: 0.7;
     }
-    img{
+    img {
       width: 200px;
       mix-blend-mode: multiply;
       opacity: 1;
-      filter:hue-rotate(180deg);
-      
-      
+      filter: hue-rotate(180deg);
     }
   }
 }

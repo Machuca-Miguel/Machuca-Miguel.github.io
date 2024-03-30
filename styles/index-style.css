@@ -4,7 +4,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif, system-ui;
+  font-family: monospace, sans-serif, system-ui;
 }
 * a {
   text-decoration: none;
@@ -27,6 +27,9 @@
   gap: 1em;
   padding: 10px 5em;
   height: 60px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
   /* Estilo para el logo */
   /* Estilo para el nombre */
   /* Estilo para los elementos de la lista */
@@ -50,15 +53,54 @@
 .navbar ul {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 .navbar ul li {
-  color: #ff6e5f;
   cursor: pointer;
   font-weight: bold;
+  color: rgb(230, 230, 230);
+}
+.navbar ul li button {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  background-color: transparent;
+  border: 2px solid none;
+  -o-border-image: linear-gradient(30deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
+     border-image: linear-gradient(30deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
+  border-image-outset: 2px;
+  border-image-slice: 1;
+  padding: 6px 12px;
+  color: white;
+  transition: background-image 7s ease;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+.navbar ul li button::before {
+  background-image: linear-gradient(30deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  width: 0;
+  height: 100%;
+  transform: skew(15deg);
+  transition: all 0.5s;
+  overflow: hidden;
+  z-index: -1;
+}
+.navbar ul li button:hover {
+  cursor: pointer;
+}
+.navbar ul li button:hover::before {
+  width: 200%;
 }
 .navbar ul li:hover {
-  color: #e74c3c;
+  background-image: linear-gradient(0deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .main {
@@ -68,11 +110,11 @@
   /* Section in Progress */
 }
 .main .section_landing {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  grid-template-rows: 400px;
+  padding: 5em;
   align-items: center;
-  padding: 3em 5em;
-  gap: clamp(50px, 15%, 200px);
   /* Estilo para los elementos de la imagen Landing */
   /* Estilo para los elementos del texto Landing */
 }
@@ -83,50 +125,64 @@
   align-items: center;
 }
 .main .section_landing .container_image .circle_background {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 20vw;
+  aspect-ratio: 1/1;
   background-color: #ff6e5f;
   background-image: linear-gradient(30deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
-  width: 250px;
-  aspect-ratio: 1/1;
   border-radius: 50%;
-  position: absolute;
-  bottom: 0;
+  -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%, 0 0);
+          clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  overflow: hidden;
+  z-index: 0;
 }
-.main .section_landing .container_image img {
-  height: 300px;
-  width: 250px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  z-index: 1;
-  border-bottom-left-radius: 125px;
-  border-bottom-right-radius: 125px;
+.main .section_landing .container_image .circle_background img {
+  width: 70%;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));
 }
 .main .section_landing .container_landing_text {
-  width: clamp(300px, 30%, 400px);
+  width: 600px;
   display: flex;
   flex-direction: column;
 }
 .main .section_landing .container_landing_text h1 {
-  width: -moz-fit-content;
-  width: fit-content;
+  font-size: 32px;
   background-image: linear-gradient(0deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
+.main .section_landing .container_landing_text h4 {
+  font-size: 24px;
+}
 .main .section_landing .container_landing_text .name_detail {
   font-size: bold;
-  font-family: monospace;
-  font-size: 20px;
+  font-size: 24px;
   background-image: linear-gradient(0deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 .main .section_landing .container_landing_text p {
+  margin-top: 0.5em;
+  color: rgb(230, 230, 230);
+}
+.main .section_landing .container_landing_text .quote {
   margin: 0.5em 0 1em 0;
   font-style: italic;
-  color: rgb(230, 230, 230);
+}
+.main .section_landing .container_landing_text .quote span {
+  background-image: linear-gradient(0deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 .main .section_landing .container_landing_text .container_landing_buttons {
   display: flex;
@@ -150,6 +206,7 @@
   border: 2px solid none;
   -o-border-image: linear-gradient(30deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
      border-image: linear-gradient(30deg, #99194a 10%, #e62525 30%, #fe6a48 100%);
+  border-image-outset: 2px;
   border-image-slice: 1;
   padding: 6px 12px;
   color: white;
@@ -193,4 +250,4 @@
   mix-blend-mode: multiply;
   opacity: 1;
   filter: hue-rotate(180deg);
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=index-style.css.map */

@@ -4,3 +4,40 @@
     -webkit-background-clip: text;
     color: transparent;
   }
+
+@mixin gradient-button() {
+  button {
+    min-width: fit-content;
+    background-color: transparent;
+    border: 2px solid none;
+    border-image: $gradient-text-color;
+    border-image-outset: 2px;
+    border-image-slice: 1;
+    padding: 6px 12px;
+    color: $primary-text-color;
+    transition: background-image 7s ease;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  button::before {
+    background-image: $gradient-text-color;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+  button:hover::before {
+    width: 200%;
+  }
+}

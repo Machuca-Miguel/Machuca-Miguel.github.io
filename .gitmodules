@@ -1,9 +1,9 @@
 [submodule "DroneMaster"]
-	path = DroneMaster
+	path = projects/DroneMaster
 	url = https://github.com/Machuca-Miguel/DroneMaster.git
 [submodule "MyLibrary"]
-	path = MyLibrary
+	path = projects/MyLibrary
 	url = https://github.com/Machuca-Miguel/MyLibraryApp.git
 [submodule "Frikland"]
-	path = Frikland
+	path = projects/Frikland
 	url = https://github.com/Machuca-Miguel/Frikland-project.git
